@@ -1,0 +1,15 @@
+{
+  "name": "繁简学堂",
+  "short_name": "繁简学堂",
+  "description": "学习繁体字：互配选择、错题循环、过关临摹",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#eefcf5",
+  "theme_color": "#58cc02",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
