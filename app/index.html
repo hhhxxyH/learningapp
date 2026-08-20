@@ -1,0 +1,74 @@
+﻿<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#58cc02" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="繁简学堂" />
+  <title>繁简学堂 · 学习繁体字</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="brand" id="go-home-btn" aria-label="回到首页">
+        <span class="brand-mascot">🦉</span>
+        <span class="brand-name">繁简学堂</span>
+      </button>
+      <button class="quit-link" id="quit-btn">结束</button>
+    </header>
+
+    <main class="main">
+      <!-- 首页 -->
+      <section class="screen is-active" id="home-screen" aria-label="首页">
+        <div class="hero-card card">
+          <div class="hero-emoji" aria-hidden="true">🦉</div>
+          <h1 class="hero-title">学习繁体字</h1>
+          <p class="hero-subtitle">每组 10 个，选错的会再出现；全部过关后临摹。</p>
+          <div id="home-progress" class="home-progress"></div>
+          <button class="btn btn-primary btn-huge" id="start-next-btn">
+            <span class="btn-label">开始学习</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+
+        <div class="group-section" id="group-section">
+          <h2 class="group-section-title">已完成组（点击复习）</h2>
+          <div id="group-list" class="group-list"></div>
+        </div>
+      </section>
+
+      <!-- 学习页 -->
+      <section class="screen" id="learn-screen" aria-label="学习">
+        <div id="learn-status" class="learn-status"></div>
+        <div id="exercise-root" class="exercise-root"></div>
+
+        <div class="action-bar" id="action-bar">
+          <button class="btn btn-primary btn-next" id="next-btn" disabled>
+            <span class="btn-label">下一个</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>内容来源：OpenCC · 《通用规范汉字表》 · HanziWriter / Make Me a Hanzi</span>
+    </footer>
+  </div>
+
+  <script src="vendor/hanzi-writer.min.js"></script>
+  <script src="data/characters.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("sw.js").catch(function () {});
+      });
+    }
+  </script>
+</body>
+</html>
